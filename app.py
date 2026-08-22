@@ -166,10 +166,10 @@ LICENSES = [
 NEWS = [
     {
         "date": "May 2026",
-        "title": "New rules for property registration",
-        "excerpt": "What the latest amendments mean for developers and buyers "
-                   "closing deals this year.",
-        "url": "#",
+        "title": "A new heritage project by NEXT",
+        "excerpt": "A collection of 216 private residences centered around"
+                   "a resorted 1930 pavilion.",
+        "url": "https://next-property.com/next-cinema-city-tbilisi?utm_source=google&utm_medium=search&utm_campaign=Cinema_Search_En_World|9198325&utm_content=CjwKCAjwkaXUBhASEiwAZI3dswWp61Nvy5AEC5PtWpV3Kgo-MsGlUMKE8BSJj33hju8lXAT_UlsGiRoCIBUQAvD_BwE&utm_term=next%20cinema%20city&gclid=CjwKCAjwkaXUBhASEiwAZI3dswWp61Nvy5AEC5PtWpV3Kgo-MsGlUMKE8BSJj33hju8lXAT_UlsGiRoCIBUQAvD_BwE&gad_source=1&gad_campaignid=24115484086&gbraid=0AAAAACswZpYiW7mgOxS40aNWW7pQBpvbS",
     },
     {
         "date": "March 2026",
