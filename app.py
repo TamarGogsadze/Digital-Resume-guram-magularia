@@ -31,7 +31,7 @@ PROFILE = {
              "matters, negotiate high-value agreements, and ensure regulatory compliance. "
              "Skilled in leading legal teams, advising top-tier real estate developers, and "
              "mitigating legal risks in dynamic business environments.",
-    "photo": "profile.png",               # file inside /assets
+    "photo": "profile.PNG",               # file inside /assets
     "cv_file": "Guram_Magularia_CV.pdf",  # drop your PDF into /assets
     "email": "guram.magularia@email.com",
     "phone": "+995 555 12 34 56",
