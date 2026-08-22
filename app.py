@@ -923,6 +923,6 @@ def submit_request(n_clicks, name, email, message):
         "form-status ok",
     )
 
-
+server=app.server
 if __name__ == "__main__":
     app.run(debug=True)
