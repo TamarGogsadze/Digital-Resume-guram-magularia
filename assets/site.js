@@ -4,6 +4,114 @@
    here is either delegated or (re)initialised by a MutationObserver.
    ========================================================= */
 
+/* =========================================================
+   Dash clientside functions (namespace "gm")
+   Referenced from app.py with ClientsideFunction.
+   ========================================================= */
+
+window.dash_clientside = window.dash_clientside || {};
+window.dash_clientside.gm = Object.assign({}, window.dash_clientside.gm, {
+
+  // Keeps <html lang> and the tab title in step with the chosen language.
+  applyLang: function (cfg) {
+    if ("speechSynthesis" in window) { window.speechSynthesis.cancel(); }
+    if (cfg) {
+      document.documentElement.setAttribute("lang", cfg.lang || "en");
+      if (cfg.title) { document.title = cfg.title; }
+    }
+    return window.dash_clientside.no_update;
+  },
+
+  // Dark / light mode, remembered between visits.
+  toggleTheme: function (n) {
+    var root = document.documentElement;
+    var current = root.getAttribute("data-theme") || "light";
+    if (n) {
+      current = current === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", current);
+      try { localStorage.setItem("gm-theme", current); } catch (e) {}
+    }
+    return current === "dark" ? "fa-solid fa-sun" : "fa-solid fa-moon";
+  },
+
+  // Reads the welcome aloud, using the voice built into the visitor's
+  // browser, in whichever language the page is currently showing.
+  speakAbout: function (n, cfg) {
+    var idle = "fa-solid fa-volume-high";
+    var busy = "fa-solid fa-stop";
+
+    if (!n || !("speechSynthesis" in window)) { return idle; }
+
+    // Second press stops playback.
+    if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
+      window.speechSynthesis.cancel();
+      return idle;
+    }
+
+    var text = (cfg && cfg.speech) ? cfg.speech : "";
+    if (!text) { return idle; }
+
+    var lang = (cfg && cfg.lang === "ka") ? "ka-GE" : "en-GB";
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = lang;
+    u.rate = 0.95;
+    u.pitch = 1;
+
+    // Prefer a voice that actually matches the language, when one exists.
+    var voices = window.speechSynthesis.getVoices() || [];
+    for (var i = 0; i < voices.length; i++) {
+      if (voices[i].lang && voices[i].lang.indexOf(lang.slice(0, 2)) === 0) {
+        u.voice = voices[i];
+        break;
+      }
+    }
+
+    function reset() {
+      var icon = document.getElementById("speak-icon");
+      if (icon) { icon.className = idle; }
+    }
+    u.onend = reset;
+    u.onerror = reset;
+
+    window.speechSynthesis.speak(u);
+    return busy;
+  },
+
+  // Consultation form: opens the visitor's own mail app with the request
+  // pre-written. Nothing is sent until they press send there.
+  mailtoRequest: function (n, cfg, name, email, message) {
+    if (!n || !cfg) { return window.dash_clientside.no_update; }
+
+    name = (name || "").trim();
+    email = (email || "").trim();
+    message = (message || "").trim();
+
+    var missing = [];
+    if (!name) { missing.push(cfg.f_name); }
+    if (!email) { missing.push(cfg.f_email); }
+    if (!message) { missing.push(cfg.f_message); }
+    if (missing.length) {
+      return [cfg.m_fill + missing.join(", ") + ".", "form-status err"];
+    }
+    if (email.indexOf("@") < 0 || email.split("@").pop().indexOf(".") < 0) {
+      return [cfg.m_bad_email, "form-status err"];
+    }
+
+    var body =
+      cfg.label_name + ": " + name + "\n\n" +
+      cfg.label_message + ": " + message;
+
+    window.location.href =
+      "mailto:" + cfg.email +
+      "?subject=" + encodeURIComponent(cfg.subject) +
+      "&body=" + encodeURIComponent(body);
+
+    return [cfg.m_opening, "form-status ok"];
+  }
+
+});
+
+
 (function () {
   "use strict";
 
