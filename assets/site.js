@@ -18,6 +18,7 @@ window.dash_clientside.gm = Object.assign({}, window.dash_clientside.gm, {
     if (cfg) {
       document.documentElement.setAttribute("lang", cfg.lang || "en");
       if (cfg.title) { document.title = cfg.title; }
+      if (cfg.chat) { window.__gmBuildChat(cfg.chat); }
     }
     return window.dash_clientside.no_update;
   },
@@ -237,3 +238,102 @@ window.dash_clientside.gm = Object.assign({}, window.dash_clientside.gm, {
     mo.observe(root, { childList: true, subtree: true });
   });
 })();
+
+
+/* =========================================================
+   Pick-a-question assistant
+   Built here rather than in the Dash layout so that switching
+   language simply rebuilds it, with no callbacks to unwind.
+   ========================================================= */
+
+window.__gmBuildChat = function (chat) {
+  var existing = document.getElementById("gm-chat");
+  if (existing) { existing.remove(); }
+
+  var root = document.createElement("div");
+  root.id = "gm-chat";
+
+  // launcher
+  var launcher = document.createElement("button");
+  launcher.className = "gm-chat__launch";
+  launcher.type = "button";
+  launcher.setAttribute("aria-label", chat.launch);
+  launcher.innerHTML =
+    '<i class="fa-regular fa-comments"></i><span>' + chat.launch + "</span>";
+
+  // panel
+  var panel = document.createElement("div");
+  panel.className = "gm-chat__panel";
+  panel.setAttribute("role", "dialog");
+  panel.setAttribute("aria-label", chat.title);
+
+  var head = document.createElement("div");
+  head.className = "gm-chat__head";
+  head.innerHTML =
+    "<span>" + chat.title + "</span>" +
+    '<button type="button" class="gm-chat__close" aria-label="' +
+    chat.close + '"><i class="fa-solid fa-xmark"></i></button>';
+
+  var log = document.createElement("div");
+  log.className = "gm-chat__log";
+
+  var list = document.createElement("div");
+  list.className = "gm-chat__questions";
+
+  function bubble(text, who) {
+    var b = document.createElement("div");
+    b.className = "gm-chat__msg gm-chat__msg--" + who;
+    b.textContent = text;
+    log.appendChild(b);
+    log.scrollTop = log.scrollHeight;
+    return b;
+  }
+
+  function showQuestions() {
+    list.innerHTML = "";
+    var hint = document.createElement("p");
+    hint.className = "gm-chat__hint";
+    hint.textContent = chat.hint;
+    list.appendChild(hint);
+
+    (chat.qa || []).forEach(function (pair) {
+      var q = document.createElement("button");
+      q.type = "button";
+      q.className = "gm-chat__q";
+      q.textContent = pair[0];
+      q.addEventListener("click", function () {
+        bubble(pair[0], "user");
+        list.innerHTML = "";
+        window.setTimeout(function () {
+          bubble(pair[1], "bot");
+          showQuestions();
+        }, 380);
+      });
+      list.appendChild(q);
+    });
+  }
+
+  panel.appendChild(head);
+  panel.appendChild(log);
+  panel.appendChild(list);
+  root.appendChild(panel);
+  root.appendChild(launcher);
+  document.body.appendChild(root);
+
+  bubble(chat.greeting, "bot");
+  showQuestions();
+
+  function setOpen(open) {
+    root.classList.toggle("is-open", open);
+    launcher.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  launcher.addEventListener("click", function () {
+    setOpen(!root.classList.contains("is-open"));
+  });
+  head.querySelector(".gm-chat__close").addEventListener("click", function () {
+    setOpen(false);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") { setOpen(false); }
+  });
+};
