@@ -25,9 +25,9 @@ COMMON = {
     "cv_file": "CV - Guram Magularia.pdf",   # the PDF in /assets
     "hero_bg": "background1.jpg",            # backdrop photo in /assets
     "photo": "profile.jpg",                 # portrait shown in the contact card
-    "email": "guram.magularia@gmail.com",
-    "phone": "+995 555 12 34 56",
-    "phone_href": "+995555123456",
+    "email": "magulariaguram@gmail.com",
+    "phone": "+995 595 41 77 75",
+    "phone_href": "+995595417775",
     "linkedin": "https://www.linkedin.com/in/gurammagularia",
     "linkedin_label": "linkedin.com/in/gurammagularia",
 }
@@ -46,7 +46,7 @@ CONTENT = {
         "first_name": "Guram",
         "last_name": "Magularia",
         "role": "Legal Counsel",
-        "location": "Tbilisi, Georgia",
+        "location": "Batumi, Georgia",
         "specialties": ["Civil & Legal Law", "Contract & Business Law",
                         "Real Estate Law"],
         "lede": "Providing strategic legal solutions with precision, integrity, "
@@ -57,7 +57,8 @@ CONTENT = {
                  "negotiating high-value contracts to managing litigation and running "
                  "due diligence on multi-million-dollar real estate transactions. "
                  "Experienced in advising executive leadership on legal strategy, "
-                 "compliance and business expansion.",
+                 "compliance and business expansion. Also helps private clients "
+                 "obtain residence permits and Georgian citizenship.",
 
         # (icon, headline value, supporting label)
         "stats": [
@@ -91,8 +92,9 @@ CONTENT = {
              "Court and administrative proceedings, settlements and enforcement."),
             ("fa-solid fa-briefcase", "Corporate & Business Law",
              "Structuring, governance and day-to-day advisory for the business."),
-            ("fa-solid fa-shield-halved", "Regulatory Compliance",
-             "Keeping operations aligned with the regulatory framework."),
+            ("fa-solid fa-passport", "Residence & Citizenship",
+             "Residence permits and citizenship applications handled end to end "
+             "for private clients."),
             ("fa-solid fa-magnifying-glass-chart", "Legal Due Diligence",
              "Risk review on multi-million-dollar real estate transactions."),
         ],
@@ -168,20 +170,6 @@ CONTENT = {
             },
         ],
 
-        # (skill, proficiency label shown on the right, bar fill 0-100)
-        "skills": [
-            ("Contract Drafting & Negotiation", "Expert", 95),
-            ("Civil & Commercial Litigation", "Expert", 90),
-            ("Real Estate Transactions", "Expert", 92),
-            ("Corporate Governance", "Advanced", 85),
-            ("Regulatory Compliance", "Advanced", 88),
-        ],
-
-        "soft_skills": [
-            "Legal Research", "Risk Assessment", "Client Advisory", "Due Diligence",
-            "Mediation", "Team Leadership", "Legal Writing", "Case Strategy",
-        ],
-
         "languages": [
             ("Georgian", "Native", 100),
             ("English", "Professional — C1", 85),
@@ -237,7 +225,6 @@ CONTENT = {
             ("Expertise", "#practice"),
             ("Experience", "#experience"),
             ("Education", "#education"),
-            ("Skills", "#skills"),
             ("Languages", "#languages"),
             ("Licenses", "#licenses"),
             ("Hobbies", "#hobbies"),
@@ -261,9 +248,6 @@ CONTENT = {
             "experience_sub": "Seven years advising banks, developers and "
                               "private clients.",
             "education_title": "Education",
-            "skills_title": "Skills",
-            "skills_panel": "Legal expertise",
-            "strengths_panel": "Core strengths",
             "languages_title": "Languages",
             "licenses_title": "Licenses & Certifications",
             "hobbies_title": "Hobbies",
@@ -292,9 +276,52 @@ CONTENT = {
 
         # Read aloud by the speaker button in the header.
         "speech": "Welcome to the personal website of Guram, Legal "
-                  "Counsel, with Seven years of practice across real estate development "
+                  "Counsel. Seven years of practice across real estate development "
                   "and banking litigation. If you are looking for considered legal "
                   "solutions, you have come to the right place.",
+
+        # The pick-a-question assistant in the corner of the page.
+        "chat": {
+            "launch": "Ask a question",
+            "title": "Quick answers",
+            "hint": "Pick a question below.",
+            "close": "Close",
+            "greeting": "Hello. Choose one of the questions below and I will "
+                        "answer straight away.",
+            "restart": "Ask something else",
+            "qa": [
+                ("What kind of matters do you handle?",
+                 "Real estate and development law, contract drafting and "
+                 "negotiation, litigation and dispute resolution, corporate and "
+                 "business law, and legal due diligence — plus residence permits "
+                 "and citizenship for private clients."),
+                ("How do I arrange a consultation?",
+                 "Use the consultation form at the bottom of this page, or write "
+                 "directly to magulariaguram@gmail.com. Consultations are by "
+                 "appointment, Monday to Friday."),
+                ("Where are you based?",
+                 "Batumi, Georgia. Meetings can also be held remotely."),
+                ("What does a consultation cost?",
+                 "Fees depend on the nature and scope of the matter. The first "
+                 "conversation establishes what is involved, and you receive a "
+                 "clear quote before any work begins."),
+                ("What experience do you have?",
+                 "Seven years in practice: currently Head of Legal Department at "
+                 "NEXT, previously litigation lawyer at PASHA Bank Georgia and "
+                 "lawyer at FINCA Bank Georgia, after an internship at Tbilisi "
+                 "City Court."),
+                ("Which languages can we work in?",
+                 "Georgian, English and Russian."),
+                ("How soon will I get a reply?",
+                 "Enquiries are normally answered within one business day."),
+                ("Can you help with a residence permit or citizenship?",
+                 "Yes. Alongside the main practice, Guram advises individuals on "
+                 "residence permits and citizenship applications in Georgia — "
+                 "eligibility, required documents, and the application itself. "
+                 "Describe your situation through the contact form and you will "
+                 "get an assessment."),
+            ],
+        },
 
         # Strings the mail-draft function needs (see assets/site.js)
         "mail": {
@@ -323,7 +350,7 @@ CONTENT = {
         "first_name": "გურამ",
         "last_name": "მაღულარია",
         "role": "იურიდიული მრჩეველი",
-        "location": "თბილისი, საქართველო",
+        "location": "ბათუმი, საქართველო",
         "specialties": ["სამოქალაქო სამართალი", "ხელშეკრულებისა და ბიზნეს სამართალი",
                         "უძრავი ქონების სამართალი"],
         "lede": "სტრატეგიული იურიდიული გადაწყვეტები სიზუსტით, კეთილსინდისიერებით "
@@ -336,7 +363,9 @@ CONTENT = {
                  "მართვამდე და მრავალმილიონიანი უძრავი ქონების გარიგებების "
                  "იურიდიულ დიუ დილიჯენსამდე. გამოცდილება აღმასრულებელი "
                  "ხელმძღვანელობისთვის იურიდიულ სტრატეგიაზე, შესაბამისობასა და "
-                 "ბიზნესის გაფართოებაზე კონსულტაციის გაწევაში.",
+                 "ბიზნესის გაფართოებაზე კონსულტაციის გაწევაში. ასევე ეხმარება "
+                 "კერძო კლიენტებს ბინადრობის ნებართვისა და საქართველოს "
+                 "მოქალაქეობის მოპოვებაში.",
 
         "stats": [
             ("fa-solid fa-briefcase", "7+", "წლიანი გამოცდილება"),
@@ -370,8 +399,9 @@ CONTENT = {
              "სასამართლო და ადმინისტრაციული წარმოება, მორიგება და აღსრულება."),
             ("fa-solid fa-briefcase", "კორპორაციული და ბიზნეს სამართალი",
              "სტრუქტურირება, მმართველობა და ყოველდღიური იურიდიული მხარდაჭერა."),
-            ("fa-solid fa-shield-halved", "მარეგულირებელი შესაბამისობა",
-             "საქმიანობის შესაბამისობა მარეგულირებელ ჩარჩოსთან."),
+            ("fa-solid fa-passport", "ბინადრობა და მოქალაქეობა",
+             "ბინადრობის ნებართვა და მოქალაქეობა — სრული პროცესის წარმართვა "
+             "კერძო კლიენტებისთვის."),
             ("fa-solid fa-magnifying-glass-chart", "იურიდიული დიუ დილიჯენსი",
              "რისკების შეფასება მრავალმილიონიან უძრავი ქონების გარიგებებზე."),
         ],
@@ -449,20 +479,6 @@ CONTENT = {
             },
         ],
 
-        "skills": [
-            ("ხელშეკრულებების შედგენა და მოლაპარაკება", "ექსპერტი", 95),
-            ("სამოქალაქო და კომერციული სამართალწარმოება", "ექსპერტი", 90),
-            ("უძრავი ქონების გარიგებები", "ექსპერტი", 92),
-            ("კორპორაციული მმართველობა", "მაღალი", 85),
-            ("მარეგულირებელი შესაბამისობა", "მაღალი", 88),
-        ],
-
-        "soft_skills": [
-            "იურიდიული კვლევა", "რისკის შეფასება", "კლიენტთა კონსულტაცია",
-            "დიუ დილიჯენსი", "მედიაცია", "გუნდის ხელმძღვანელობა",
-            "იურიდიული წერა", "საქმის სტრატეგია",
-        ],
-
         "languages": [
             ("ქართული", "მშობლიური", 100),
             ("ინგლისური", "პროფესიული — C1", 85),
@@ -516,7 +532,6 @@ CONTENT = {
             ("ექსპერტიზა", "#practice"),
             ("გამოცდილება", "#experience"),
             ("განათლება", "#education"),
-            ("უნარები", "#skills"),
             ("ენები", "#languages"),
             ("ლიცენზიები", "#licenses"),
             ("ჰობი", "#hobbies"),
@@ -539,9 +554,6 @@ CONTENT = {
             "experience_sub": "შვიდწლიანი გამოცდილება ბანკებთან, დეველოპერებთან და "
                               "კერძო კლიენტებთან.",
             "education_title": "განათლება",
-            "skills_title": "უნარები",
-            "skills_panel": "იურიდიული ექსპერტიზა",
-            "strengths_panel": "ძირითადი ძლიერი მხარეები",
             "languages_title": "ენები",
             "licenses_title": "ლიცენზიები და სერტიფიკატები",
             "hobbies_title": "ჰობი",
@@ -569,10 +581,53 @@ CONTENT = {
             "stop_listening": "შეჩერება",
         },
 
-        "speech": "მოგესალმებით. ეს არის გურამ მაღულარიას პირადი ვებგვერდი — "
+        "speech": "მოგესალმებით. ეს არის გურამის პირადი ვებგვერდი — "
                   "იურიდიული მრჩეველი შვიდწლიანი გამოცდილებით უძრავი ქონების "
                   "დეველოპმენტსა და საბანკო სამართალწარმოებაში. თუ სანდო "
                   "იურიდიულ გადაწყვეტებს ეძებთ, სწორ ადგილას ხართ.",
+
+        "chat": {
+            "launch": "დასვით შეკითხვა",
+            "title": "სწრაფი პასუხები",
+            "hint": "აირჩიეთ შეკითხვა.",
+            "close": "დახურვა",
+            "greeting": "მოგესალმებით. აირჩიეთ ქვემოთ მოცემული შეკითხვა და "
+                        "მაშინვე მიიღებთ პასუხს.",
+            "restart": "სხვა შეკითხვა",
+            "qa": [
+                ("რა საკითხებზე მუშაობთ?",
+                 "უძრავი ქონებისა და დეველოპმენტის სამართალი, ხელშეკრულებების "
+                 "შედგენა და მოლაპარაკება, სამართალწარმოება და დავების "
+                 "გადაწყვეტა, კორპორაციული და ბიზნეს სამართალი და იურიდიული დიუ "
+                 "დილიჯენსი — ასევე ბინადრობის ნებართვა და მოქალაქეობა კერძო "
+                 "კლიენტებისთვის."),
+                ("როგორ დავჯავშნო კონსულტაცია?",
+                 "შეავსეთ გვერდის ბოლოს არსებული ფორმა ან მოგვწერეთ პირდაპირ "
+                 "მისამართზე magulariaguram@gmail.com. კონსულტაცია ტარდება "
+                 "წინასწარი შეთანხმებით, ორშაბათიდან პარასკევამდე."),
+                ("სად ხართ განთავსებული?",
+                 "ბათუმი, საქართველო. შეხვედრა შესაძლებელია დისტანციურადაც."),
+                ("რა ღირს კონსულტაცია?",
+                 "საფასური დამოკიდებულია საკითხის ხასიათსა და მოცულობაზე. "
+                 "პირველი საუბრის შემდეგ მიიღებთ მკაფიო შეთავაზებას სამუშაოს "
+                 "დაწყებამდე."),
+                ("რა გამოცდილება გაქვთ?",
+                 "შვიდწლიანი პრაქტიკა: ამჟამად NEXT-ის იურიდიული დეპარტამენტის "
+                 "უფროსი, მანამდე სამართალწარმოების იურისტი PASHA Bank Georgia-ში "
+                 "და იურისტი FINCA Bank Georgia-ში, თბილისის საქალაქო "
+                 "სასამართლოში სტაჟირების შემდეგ."),
+                ("რა ენებზე შეგვიძლია მუშაობა?",
+                 "ქართული, ინგლისური და რუსული."),
+                ("რამდენ ხანში მივიღებ პასუხს?",
+                 "შეკითხვებს ჩვეულებრივ ერთი სამუშაო დღის განმავლობაში ვპასუხობთ."),
+                ("დამეხმარებით ბინადრობის ნებართვასა და მოქალაქეობაში?",
+                 "დიახ. ძირითად პრაქტიკასთან ერთად, გურამი კერძო პირებს უწევს "
+                 "კონსულტაციას საქართველოში ბინადრობის ნებართვისა და მოქალაქეობის "
+                 "საკითხებზე — დასაშვებობა, საჭირო დოკუმენტები და განაცხადის "
+                 "პროცესი. აღწერეთ თქვენი სიტუაცია საკონტაქტო ფორმით და მიიღებთ "
+                 "შეფასებას."),
+            ],
+        },
 
         "mail": {
             "subject": "კონსულტაციის მოთხოვნა",
@@ -1044,51 +1099,6 @@ def education(c):
     )
 
 
-def skills(c):
-    ui = c["ui"]
-
-    bars = html.Div(
-        [
-            html.H3(ui["skills_panel"]),
-            *[
-                html.Div(
-                    [
-                        html.Div(
-                            [html.Span(name), html.Span(label)],
-                            className="skill__top",
-                        ),
-                        html.Div(html.I(style={"width": f"{fill}%"}), className="bar"),
-                    ],
-                    className="skill",
-                )
-                for name, label, fill in c["skills"]
-            ],
-        ],
-        className="panel reveal",
-    )
-
-    tags = html.Div(
-        [
-            html.H3(ui["strengths_panel"]),
-            html.Div(
-                [html.Span(s, className="chip") for s in c["soft_skills"]],
-                className="tl-tags",
-            ),
-        ],
-        className="panel reveal",
-    )
-
-    return html.Section(
-        html.Div(
-            [section_head(ui["skills_title"]),
-             html.Div([bars, tags], className="grid-2")],
-            className="wrap",
-        ),
-        id="skills",
-        className="section section--alt",
-    )
-
-
 def languages(c):
     return html.Section(
         html.Div(
@@ -1121,7 +1131,7 @@ def languages(c):
             className="wrap",
         ),
         id="languages",
-        className="section",
+        className="section section--alt",
     )
 
 
@@ -1147,7 +1157,7 @@ def licenses(c):
             className="wrap",
         ),
         id="licenses",
-        className="section section--alt",
+        className="section",
     )
 
 
@@ -1171,7 +1181,7 @@ def hobbies(c):
             className="wrap",
         ),
         id="hobbies",
-        className="section",
+        className="section section--alt",
     )
 
 
@@ -1208,7 +1218,7 @@ def news(c):
             className="wrap",
         ),
         id="news",
-        className="section section--alt",
+        className="section",
     )
 
 
@@ -1290,7 +1300,7 @@ def contact(c):
             className="wrap",
         ),
         id="contact",
-        className="section",
+        className="section section--alt",
     )
 
 
@@ -1333,7 +1343,6 @@ def build_page(lang):
                 about_band(c),
                 experience(c),
                 education(c),
-                skills(c),
                 languages(c),
                 licenses(c),
                 hobbies(c),
@@ -1354,6 +1363,7 @@ def build_page(lang):
                 "lang": c["html_lang"],
                 "title": f"{full_name(c)} — {c['role']}",
                 "speech": c["speech"],
+                "chat": c["chat"],
                 **c["mail"],
             },
         ),
