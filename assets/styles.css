@@ -1011,7 +1011,7 @@ ul.tl-desc li::marker { color: var(--gold); }
 
 /* Laptop screens: make the hero fit one screen at 100% zoom */
 @media (min-width: 1025px) and (max-height: 840px) {
-  .hero { min-height: 100vh; }
+  .hero { min-height: auto; }
   .hero__copy { padding: 28px 0 32px; }
   .hero__name { font-size: clamp(2.6rem, 1rem + 4vw, 4.2rem); }
   .hero__lede { margin-bottom: 22px; }
